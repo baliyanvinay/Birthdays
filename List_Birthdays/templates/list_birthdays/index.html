@@ -1,0 +1,36 @@
+{% extends 'list_birthdays/layout.html' %}
+{% block body %}
+<div class="mx-auto m-1 float-right">
+    <form class="form-inline" method="GET" action="">
+        <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="search_name">
+        <button class="btn btn-info ml-1" type="submit">Search</button>
+    </form>
+</div>
+
+<div class="mx-auto mt-5" style="width: 75%;">
+    <h2 class="text-center"> Upcoming Bithdays</h2>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">DOB</th>
+            <th scope="col">Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for birthday in Birthdays %}
+            <tr>
+                <td>{{ birthday.id }}</td>
+                <td>{{ birthday.name }}</td>
+                <td>{{ birthday.dob }}</td>
+                <td>{{ birthday.age }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="text-center mt-5">
+    <a href="{% url 'add_new' %}" class="btn btn-info" role="button">Add New</a>
+</div>
+{% endblock body %}
