@@ -6,6 +6,7 @@ class Tab_Birthdays(models.Model):
     name=models.CharField(max_length=32)
     dob=models.DateField()
     age=models.IntegerField()
+    dob_current_year=models.DateField()
 
     def __str__(self):
         return f"Name: {self.name}, Age: {self.age}"
