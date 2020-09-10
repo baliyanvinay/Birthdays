@@ -4,8 +4,10 @@ The purpose of this project is to learn basic Django functionalities through cod
 ## Functionality of Project
 The project acts a birthday manager which will provide you the list of upcoming birthdays displayed in a table. It also enables you to add a new birthday to the list. 
 
-## To be added
+## Functionalities Added
 <b>Search Option: </b>One can search by name and get details of the person matching the input to view when is the birthday of the concerned person.\
+
+## To be added
 <b>Delete Record: </b>One should be able to delete a record if required.\
 <b>Sorted Records: </b>The rows in the table for birthdays should be sorted on the earliest basis. One should be able to view whose birthday is next and then next. \
 <b>Today's Birthday: </b>The project should display the name of the person in Today's Birthday section if the concerned has a birthday on the date.\
