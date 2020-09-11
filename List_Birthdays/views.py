@@ -23,6 +23,7 @@ def index(request):
         }   
     return render(request, template_name='list_birthdays/index.html', context=model_data)
 
+
 def add_new(request):
     if request.method == 'POST': #getting data from HTML form via POST method
         name=request.POST['name']
