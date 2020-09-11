@@ -10,14 +10,16 @@ def index(request):
     search_name=request.GET.get('search_name')
     if search_name:
         model_data={
-        "Birthdays": Tab_Birthdays.objects.filter(name=search_name.capitalize())
+        "Birthdays": Tab_Birthdays.objects.filter(name=search_name.capitalize()),
+        "Birthday_today": Tab_Birthdays.objects.filter(dob_current_year=date.today())
         }
     else:
         '''
         dob_current_year__gt means comparision greater than the value on the right of the assignment operator
         '''
         model_data={
-            "Birthdays": Tab_Birthdays.objects.filter(dob_current_year__gt=date.today()).order_by('dob_current_year')
+            "Birthdays": Tab_Birthdays.objects.filter(dob_current_year__gte=date.today()).order_by('dob_current_year'),
+            "Birthday_today": Tab_Birthdays.objects.filter(dob_current_year=date.today())
         }   
     return render(request, template_name='list_birthdays/index.html', context=model_data)
 

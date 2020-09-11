@@ -7,7 +7,21 @@
     </form>
 </div>
 
-<div class="mx-auto mt-5" style="width: 75%;">
+<!--Displays Today's Birthdays-->
+<div class="mx-auto mt-5 text-center" style="width: 75%;">
+<h2>Today's Birthday(s)</h2>
+{% if Birthday_today %}
+        {% for birth_today in Birthday_today %}
+                <marquee class="text-success" behavior="scroll" direction="left">
+                    <h3>Happy Birthday {{ birth_today.name }}!</h3>
+                </marquee>
+        {% endfor %}
+{% else %}
+    <h6>No Birthdays Today!</h6>
+{% endif %}
+</div>
+
+<div class="mx-auto mt-3" style="width: 75%;">
     <h2 class="text-center"> Upcoming Bithdays</h2>
     <table class="table">
         <thead>
