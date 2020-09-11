@@ -19,8 +19,9 @@
 {% else %}
     <h6>No Birthdays Today!</h6>
 {% endif %}
-</div>
+</div> <!--End of Today's Birthday Functionality-->
 
+<!--Displaying Upcoming Birthdays only-->
 <div class="mx-auto mt-3" style="width: 75%;">
     <h2 class="text-center"> Upcoming Bithdays</h2>
     <table class="table">
@@ -43,7 +44,8 @@
             {% endfor %}
         </tbody>
     </table>
-</div>
+</div> <!--End of Displaying Today's Birthdays-->
+
 <div class="text-center mt-5">
     <a href="{% url 'add_new' %}" class="btn btn-info" role="button">Add New</a>
 </div>
