@@ -1,0 +1,29 @@
+{% extends 'list_birthdays/layout.html' %}
+{% block body %}
+
+<!--Displaying List of all birthdays Birthdays-->
+<div class="mx-auto mt-3" style="width: 75%;">
+    <h2 class="text-center"> All Birthdays</h2>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">DOB</th>
+            <th scope="col">Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for birthday in Birthdays %}
+            <tr>
+                <td>{{ birthday.id }}</td>
+                <td>{{ birthday.name }}</td>
+                <td>{{ birthday.dob }}</td>
+                <td>{{ birthday.age }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div> <!--End of Displaying All Birthdays-->
+
+{% endblock body %}

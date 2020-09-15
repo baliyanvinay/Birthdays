@@ -40,3 +40,10 @@ def add_new(request):
         new_birthday=Tab_Birthdays(name=name, dob=dob, age=age, dob_current_year=dob_current_year)
         new_birthday.save()
     return render(request, template_name='list_birthdays/add_new.html')
+
+
+def list_all(request):
+    model_data={
+        "Birthdays": Tab_Birthdays.objects.all().order_by('dob_current_year')
+    }   
+    return render(request, template_name='list_birthdays/list_all.html', context=model_data)
