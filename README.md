@@ -14,7 +14,6 @@ The project acts a birthday manager which will provide you the list of upcoming 
 ## To be Added
 - [ ] <b>Delete Record: </b>One should be able to delete a record if required.
 - [ ] <b>Photo Add: </b>One should be able to view the photo of the concerned mentioned in Today's Birthday.
-- [ ] <b>Calculate Age: </b>Using JS when DOB added for a new record.
 
 
 ## Enhance Functions
