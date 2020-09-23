@@ -7,12 +7,12 @@
     <!--Card content-->
     <div class="card-body px-lg-4 p-3">
         <form class="text-center" method="POST" action="">
-            {% csrf_token %} 
+            {% csrf_token %}
             <div class="form-group">
-                <input type="text" class="form-control" id="name" placeholder="Name" name='name'>
+                <input type="text" required class="form-control" id="name" placeholder="Name" name='name'>
             </div>
             <div class="form-group">
-                <input type="date" class="form-control" id="dob" name='dob'>
+                <input type="date" required class="form-control" id="dob" name='dob'>
             </div>
             <div class="form-group">
                 <input type="number" class="form-control" id="age" placeholder="Age" name='age'>

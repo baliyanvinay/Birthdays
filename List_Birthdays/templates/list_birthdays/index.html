@@ -9,17 +9,18 @@
 
 <!--Displays Today's Birthdays-->
 <div class="mx-auto mt-5 text-center" style="width: 75%;">
-<h2>Today's Birthday(s)</h2>
-{% if Birthday_today %}
-        {% for birth_today in Birthday_today %}
-                <marquee class="text-success" behavior="scroll" direction="left">
-                    <h3>Happy Birthday {{ birth_today.name }}!</h3>
-                </marquee>
-        {% endfor %}
-{% else %}
+    <h2>Today's Birthday(s)</h2>
+    {% if Birthday_today %}
+    {% for birth_today in Birthday_today %}
+    <marquee class="text-success" behavior="scroll" direction="left">
+        <h3>Happy Birthday {{ birth_today.name }}!</h3>
+    </marquee>
+    {% endfor %}
+    {% else %}
     <h6>No Birthdays Today!</h6>
-{% endif %}
-</div> <!--End of Today's Birthday Functionality-->
+    {% endif %}
+</div>
+<!--End of Today's Birthday Functionality-->
 
 <!--Displaying Upcoming Birthdays only-->
 <div class="mx-auto mt-3" style="width: 75%;">
@@ -27,10 +28,10 @@
     <table class="table">
         <thead>
             <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">DOB</th>
-            <th scope="col">Age</th>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">DOB</th>
+                <th scope="col">Age</th>
             </tr>
         </thead>
         <tbody>
@@ -44,7 +45,8 @@
             {% endfor %}
         </tbody>
     </table>
-</div> <!--End of Displaying Today's Birthdays-->
+</div>
+<!--End of Displaying Today's Birthdays-->
 
 <div class="text-center mt-5">
     <a href="{% url 'add_new' %}" class="btn btn-info" role="button">Add New</a>
