@@ -22,8 +22,12 @@
                 <td>{{ birthday.name }}</td>
                 <td>{{ birthday.dob }}</td>
                 <td>{{ birthday.age }}</td>
-                <td><img src="{% static 'list_birthdays/images/icon.svg' %}" alt="My image" height="15px"
-                        style="margin-left: 20%;"></td>
+                <td>
+                    <a href="{% url 'list_all' %}" type="submit">
+                        <img src="{% static 'list_birthdays/images/icon.svg' %}" alt="My image" height="15px"
+                            style="margin-left: 20%;">
+                    </a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
