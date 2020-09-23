@@ -1,5 +1,6 @@
 {% extends 'list_birthdays/layout.html' %}
 {% block body %}
+{% load static %}
 
 <!--Displaying List of all birthdays Birthdays-->
 <div class="mx-auto mt-3" style="width: 75%;">
@@ -11,6 +12,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">DOB</th>
                 <th scope="col">Age</th>
+                <th scope="col">Remove</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +22,8 @@
                 <td>{{ birthday.name }}</td>
                 <td>{{ birthday.dob }}</td>
                 <td>{{ birthday.age }}</td>
+                <td><img src="{% static 'list_birthdays/images/icon.svg' %}" alt="My image" height="15px"
+                        style="margin-left: 20%;"></td>
             </tr>
             {% endfor %}
         </tbody>
