@@ -9,10 +9,10 @@
         <form class="text-center" method="POST" action="">
             {% csrf_token %}
             <div class="form-group">
-                <input type="text" required class="form-control" id="name" placeholder="Name" name='name'>
+                <input type="text" required class="form-control" id="name" placeholder="Name" name='name' required>
             </div>
             <div class="form-group">
-                <input type="date" required class="form-control" id="dob" name='dob'>
+                <input type="date" required class="form-control" id="dob" name='dob' required>
             </div>
             <div class="form-group">
                 <input type="number" class="form-control" id="age" placeholder="Age" name='age'>

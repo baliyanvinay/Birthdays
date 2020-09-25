@@ -12,7 +12,7 @@ def index(request):
     search_name = request.GET.get('search_name')
     if search_name:
         model_data = {
-            "Birthdays": Tab_Birthdays.objects.filter(name=search_name.capitalize()),
+            "Birthdays": Tab_Birthdays.objects.filter(name__contains=search_name.capitalize()).order_by('dob_current_year'),
             "Birthday_today": Tab_Birthdays.objects.filter(dob_current_year=date.today())
         }
     else:
@@ -46,14 +46,24 @@ def add_new(request):
 
 
 def list_all(request):
-    model_data = {
-        "Birthdays": Tab_Birthdays.objects.all().order_by('dob_current_year')
-    }
+    search_name = request.GET.get('search_name')
+    if search_name:
+        model_data = {
+            "Birthdays": Tab_Birthdays.objects.filter(name__contains=search_name.capitalize()).order_by('dob_current_year')
+        }
+    else:
+        model_data = {
+            "Birthdays": Tab_Birthdays.objects.all().order_by('dob_current_year')
+        }
     return render(request, template_name='list_birthdays/list_all.html', context=model_data)
 
 
 def delete_birthday(request, id):
+    del_obj = Tab_Birthdays.objects.get(id=id)
+    del_obj.delete()
+
+    # reloading the model_data after the delete has been called
     model_data = {
-        "Birthdays": Tab_Birthdays.objects.exclude(id=id)
+        "Birthdays": Tab_Birthdays.objects.all().order_by('dob_current_year')
     }
     return render(request, template_name='list_birthdays/list_all.html', context=model_data)
