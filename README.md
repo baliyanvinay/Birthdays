@@ -9,11 +9,13 @@ The project acts a birthday manager which will provide you the list of upcoming 
 - [x] <b>Sorted Records: </b>The rows in the table for birthdays should be sorted on the earliest basis. One should be able to view whose birthday is next and then next.
 - [x] <b>Upcoming birthdays: </b>The list only displays upcoming birthdays comparing the date of birth(current year) to current date.
 - [x] <b>Today's Birthday: </b>The project should display the name of the person in Today's Birthday section if the concerned has a birthday on the date.
-- [x] <b>List of All Birthday: </b>A separate HTML Page to display list of all birthdays added so far. 
+- [x] <b>List of All Birthday: </b>A separate page to display list of all birthdays added so far. 
+- [x] <b>Delete Record: </b>One should be able to delete a record if required.
 
 ## To be Added
-- [ ] <b>Delete Record: </b>One should be able to delete a record if required.
 - [ ] <b>Photo Add: </b>One should be able to view the photo of the concerned mentioned in Today's Birthday.
+- [ ] <b>Scroll Bar: </b>A vertical scroll should be enabled if the number of records displayed are more than 10.
+
 
 
 ## Enhance Functions
