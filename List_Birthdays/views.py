@@ -50,3 +50,10 @@ def list_all(request):
         "Birthdays": Tab_Birthdays.objects.all().order_by('dob_current_year')
     }
     return render(request, template_name='list_birthdays/list_all.html', context=model_data)
+
+
+def delete_birthday(request, id):
+    model_data = {
+        "Birthdays": Tab_Birthdays.objects.exclude(id=id)
+    }
+    return render(request, template_name='list_birthdays/list_all.html', context=model_data)
