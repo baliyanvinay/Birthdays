@@ -58,8 +58,8 @@ def list_all(request):
     return render(request, template_name='list_birthdays/list_all.html', context=model_data)
 
 
-def delete_birthday(request, id):
-    del_obj = Tab_Birthdays.objects.get(id=id)
+def delete_birthday(request, delete_id):
+    del_obj = Tab_Birthdays.objects.get(id=delete_id)
     del_obj.delete()
 
     # reloading the model_data after the delete has been called
@@ -67,3 +67,9 @@ def delete_birthday(request, id):
         "Birthdays": Tab_Birthdays.objects.all().order_by('dob_current_year')
     }
     return render(request, template_name='list_birthdays/list_all.html', context=model_data)
+
+
+def edit_birthday(request, edit_id):
+    return render(request, template_name='list_birthdays/edit_birthday.html', context={
+        'Dummy': 1
+    })

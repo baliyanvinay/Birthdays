@@ -23,9 +23,16 @@
                 <td>{{ birthday.dob }}</td>
                 <td>{{ birthday.age }}</td>
                 <td>
-                    <!--This will display a delete icon which will be used to delete a record based on the id-->
+                    <!--Delete Record by id-->
                     <a href="{% url 'delete_birthday' birthday.id%}" type="submit">
-                        <img src="{% static 'list_birthdays/images/icon.svg' %}" alt="My image" height="15px"
+                        <img src="{% static 'list_birthdays/images/delete-icon.svg' %}" alt="delete" height="15px"
+                            style="margin-left: 20%;">
+                    </a>
+                </td>
+                <td>
+                    <!--Edit Record by id-->
+                    <a href="{% url 'edit_birthday' birthday.id%}" type="submit">
+                        <img src="{% static 'list_birthdays/images/edit-icon.svg' %}" alt="edit" height="15px"
                             style="margin-left: 20%;">
                     </a>
                 </td>
