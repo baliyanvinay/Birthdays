@@ -10,15 +10,16 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
-                <th scope="col">DOB</th>
+                <th scope="col">Date of Birth</th>
                 <th scope="col">Age</th>
                 <th scope="col">Remove</th>
+                <th scope="col">Edit</th>
             </tr>
         </thead>
         <tbody>
             {% for birthday in Birthdays %}
             <tr>
-                <td>{{ birthday.id }}</td>
+                <td>{{ forloop.counter }}</td>
                 <td>{{ birthday.name }}</td>
                 <td>{{ birthday.dob }}</td>
                 <td>{{ birthday.age }}</td>
@@ -26,14 +27,14 @@
                     <!--Delete Record by id-->
                     <a href="{% url 'delete_birthday' birthday.id%}" type="submit">
                         <img src="{% static 'list_birthdays/images/delete-icon.svg' %}" alt="delete" height="15px"
-                            style="margin-left: 20%;">
+                            style="padding-left: 50%;">
                     </a>
                 </td>
                 <td>
                     <!--Edit Record by id-->
                     <a href="{% url 'edit_birthday' birthday.id%}" type="submit">
                         <img src="{% static 'list_birthdays/images/edit-icon.svg' %}" alt="edit" height="15px"
-                            style="margin-left: 20%;">
+                            style="padding-left: 50%;">
                     </a>
                 </td>
             </tr>

@@ -1,6 +1,31 @@
-{% extends 'list_birthdays/add_edit_layout.html' %}
-{% block add_edit %}
-<div class="form-group">
-    <button class="form-control btn btn-info" role="button" type="submit">Add to List</button>
+{% extends 'list_birthdays/layout.html' %}
+{% block body %}
+<div class="card mx-auto mt-5" style="width: 35%;">
+    <h5 class="card-header white-text text-center">
+        <strong>Add New Birthday</strong>
+    </h5>
+    <!--Card content-->
+    <div class="card-body px-lg-4 p-3">
+        <form class="text-center" method="POST" action="">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" required class="form-control" id="name" placeholder="Name" name='name' required>
+            </div>
+            <div class="form-group">
+                <input type="date" required class="form-control" id="dob" name='dob' required>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" id="age" placeholder="Age" name='age'>
+            </div>
+            <!--
+            <div class="form-group">
+                <input type="file" class="form-control-file" id="image" name="image">
+            </div>
+            -->
+            <div class="form-group">
+                <button class="form-control btn btn-info" role="button" type="submit">Add to List</button>
+            </div>
+        </form>
+    </div>
 </div>
-{% endblock add_edit %}
+{% endblock body %}

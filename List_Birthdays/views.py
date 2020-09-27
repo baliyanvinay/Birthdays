@@ -26,7 +26,7 @@ def index(request):
     return render(request, template_name='list_birthdays/index.html', context=model_data)
 
 
-def add_new(request):
+def handle_request_object(request):
     if request.method == 'POST':  # getting data from HTML form via POST method
         name = request.POST['name']
         dob = request.POST['dob']
@@ -38,10 +38,15 @@ def add_new(request):
         dob = datetime.strptime(dob, '%Y-%m-%d').date()
         dob_current_year = date(date.today().year, dob.month, dob.day)
         age = relativedelta(date.today(), dob).years
+    return (name, dob, age, dob_current_year)
 
-        new_birthday = Tab_Birthdays(
-            name=name, dob=dob, age=age, dob_current_year=dob_current_year)
-        new_birthday.save()
+
+def add_new(request):
+    name, dob, age, dob_current_year = handle_request_object(request)
+
+    new_birthday = Tab_Birthdays(
+        name=name, dob=dob, age=age, dob_current_year=dob_current_year)
+    new_birthday.save()
     return render(request, template_name='list_birthdays/add_new.html')
 
 
@@ -70,6 +75,29 @@ def delete_birthday(request, delete_id):
 
 
 def edit_birthday(request, edit_id):
-    return render(request, template_name='list_birthdays/edit_birthday.html', context={
-        'Dummy': 1
-    })
+    edit_record = {
+        "Edit_Birthday_display": Tab_Birthdays.objects.get(id=edit_id)
+    }
+    return render(request, template_name='list_birthdays/edit_birthday.html', context=edit_record)
+
+
+def update_birthday(request, update_id):
+    update_obj = Tab_Birthdays.objects.get(id=update_id)
+    # below birthday details are the ones which user has posted via POST method in HTML
+    updated_name, updated_dob, updated_age, updated_dob_current_year = handle_request_object(
+        request)
+    update_obj.name = updated_name
+    update_obj.dob = updated_dob
+    update_obj.age = updated_age
+    update_obj.dob_current_year = updated_dob_current_year
+
+    update_obj.save()
+    '''
+    Update the model object with the values that user has changed; Fetch the latest data from 
+    model and pass it to list_birthdays/list_all.html
+    '''
+
+    model_data = {
+        "Birthdays": Tab_Birthdays.objects.all().order_by('dob_current_year')
+    }
+    return render(request, template_name='list_birthdays/list_all.html', context=model_data)

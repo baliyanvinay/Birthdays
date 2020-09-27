@@ -24,14 +24,14 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
-                <th scope="col">DOB</th>
+                <th scope="col">Date of Birth</th>
                 <th scope="col">Age</th>
             </tr>
         </thead>
         <tbody>
             {% for birthday in Birthdays %}
             <tr>
-                <td>{{ birthday.id }}</td>
+                <td>{{ forloop.counter }}</td>
                 <td>{{ birthday.name }}</td>
                 <td>{{ birthday.dob }}</td>
                 <td>{{ birthday.age }}</td>

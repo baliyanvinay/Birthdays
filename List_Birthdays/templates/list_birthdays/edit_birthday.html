@@ -1,6 +1,34 @@
-{% extends 'list_birthdays/add_edit_layout.html' %}
-{% block add_edit %}
-<div class="form-group">
-    <button class="form-control btn btn-info" role="button" type="submit">Update Birthday</button>
+{% extends 'list_birthdays/layout.html' %}
+{% block body %}
+<div class="card mx-auto mt-5" style="width: 35%;">
+    <h5 class="card-header white-text text-center">
+        <strong>Edit Birthday</strong>
+    </h5>
+    <!--Card content-->
+    <div class="card-body px-lg-4 p-3">
+        <form class="text-center" method="POST" action="update/">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" required class="form-control" id="name" name='name'
+                    value="{{ Edit_Birthday_display.name }}">
+            </div>
+            <div class="form-group">
+                <input type="date" required class="form-control" id="dob" name='dob'
+                    value="{{ Edit_Birthday_display.dob|date:'Y-m-d'}}">
+                <!--Date format needs to be changed in the tag as this was not working in django model somehow-->
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" id="age" name='age' value="{{ Edit_Birthday_display.age }}">
+            </div>
+            <!--
+            <div class="form-group">
+                <input type="file" class="form-control-file" id="image" name="image">
+            </div>
+            -->
+            <div class="form-group">
+                <button class="form-control btn btn-info" role="button" type="submit">Update Birthday</button>
+            </div>
+        </form>
+    </div>
 </div>
-{% endblock add_edit %}
+{% endblock body %}
