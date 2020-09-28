@@ -12,12 +12,13 @@ The project acts a birthday manager which will provide you the list of upcoming 
 - [x] <b>List of All Birthday: </b>A separate page to display list of all birthdays added so far. 
 - [x] <b>Delete Record: </b>One should be able to delete a record if required.
 - [x] <b>Update Record: </b>Records can now be updated. Has to go to all records and edit the one required. 
+- [x] <b>Scroll Bar: </b>A vertical scroll should be enabled if the number of records displayed are more than 10. 
 
 ## To be Added:writing_hand:
 - [ ] <b>Photo Add: </b>One should be able to view the photo of the concerned mentioned in Today's Birthday. *Thinking about if this should be included in the app as one is least concerned about the image of the birthday person. Will try this once for learning though.*
-- [ ] <b>Scroll Bar: </b>A vertical scroll should be enabled if the number of records displayed are more than 10.
 
 
 
 ## Enhance Functions
 - [ ] <b>Today's Birthday: </b>Display name of the person in the single line if more than one person's birthday fall on the same day.
+- [ ] <b>Scroll Bar: </b>Scrollbar displayed over the whole div. To display it only on tbody, display: block has to be selected but this messes up the space between columns and looks ugly. 
